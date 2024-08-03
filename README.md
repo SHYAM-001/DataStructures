@@ -1,8 +1,203 @@
+Hi ![](https://user-images.githubusercontent.com/18350557/176309783-0785949b-9127-417c-8b55-ab5a4333674e.gif)This is SHYAM K S
+---
 
-Certainly! Here's a detailed explanation of each data structure topic using Markdown. I'll include Mermaid diagrams where applicable to visually represent the concepts.
+# Welcome to My Data Structures Repository
+
+Welcome to my repository dedicated to mastering Data Structures in Java programming!
+
+Whether you're a beginner looking to understand the basics or an experienced developer aiming to refine your skills, this repository is designed to provide you with comprehensive resources and hands-on practice in data structures.
+
+## What You'll Find Here
+
+- **Detailed Explanations**: Clear and concise explanations of various data structures, including Arrays, Linked Lists, Stacks, Queues, Trees, and Graphs.
+- **Java Implementations**: Practical Java code examples that demonstrate how to implement and utilize these data structures.
+- **Advanced Structures**: Insights into more advanced data structures such as Segment Trees, Tries, and Red-Black Trees.
+- **Visual Aids**: Diagrams and visual representations to help you grasp complex concepts more easily.
+- **Coding Practice**: A collection of exercises and coding challenges to help reinforce your understanding and test your skills.
+- **Quizzes and Articles**: Engaging quizzes and articles to further your learning and keep you up-to-date with the latest in data structures.
+
+## Why Learn Data Structures?
+
+Understanding data structures is crucial for effective problem-solving and optimizing the performance of your Java applications. With the knowledge of various data structures, you can:
+
+- Improve the efficiency of your algorithms.
+- Enhance your ability to solve complex problems.
+- Develop a deeper understanding of how data can be organized and manipulated.
+
+Feel free to explore the repository, dive into the materials, and start coding. Happy learning and coding!
+
+## Getting Started
+
+To get started, you can browse through the [Table of Contents](#table-of-contents) to find topics that interest you. If you have any questions or need further assistance, don’t hesitate to open an issue or reach out.
+
+Enjoy your journey into the world of Data Structures in Java!
+
+Happy Coding!
+Here's a structured Table of Contents based on the provided content:
+
+# Table of Contents
+
+1. [Introduction](#introduction)
+   - [Welcome to My Data Structures Repository](#welcome-to-my-data-structures-repository)
+   - [Why Learn Data Structures?](#why-learn-data-structures)
+   - [Getting Started](#getting-started)
+
+2. [Primitive Data Structures](#primitive-data-structures)
+   - [Integer](#integer)
+   - [Float](#float)
+   - [Character](#character)
+   - [Boolean](#boolean)
+
+3. [Non-Primitive Data Structures](#non-primitive-data-structures)
+   - [Linear Data Structures](#linear-data-structures)
+     - [Arrays](#arrays)
+     - [Linked Lists](#linked-lists)
+     - [Stacks](#stacks)
+     - [Queues](#queues)
+   - [Non-Linear Data Structures](#non-linear-data-structures)
+     - [Trees](#trees)
+     - [Graphs](#graphs)
+
+4. [Hash-Based Structures](#hash-based-structures)
+   - [Hash Tables](#hash-tables)
+   - [Hashing Techniques](#hashing-techniques)
+
+5. [Advanced Data Structures](#advanced-data-structures)
+   - [Advanced Lists](#advanced-lists)
+     - [Memory Efficient Doubly Linked List](#memory-efficient-doubly-linked-list)
+     - [XOR Linked List](#xor-linked-list)
+     - [Skip List](#skip-list)
+     - [Unrolled Linked List](#unrolled-linked-list)
+   - [Segment Trees](#segment-trees)
+     - [Introduction to Segment Trees](#introduction-to-segment-trees)
+     - [Range Queries](#range-queries)
+     - [Lazy Propagation](#lazy-propagation)
+   - [Tries](#tries)
+     - [Insert and Search](#insert-and-search)
+     - [Delete](#delete)
+   - [Binary Indexed Trees](#binary-indexed-trees)
+     - [Introduction](#introduction)
+     - [Range Updates and Point Queries](#range-updates-and-point-queries)
+   - [Suffix Arrays and Trees](#suffix-arrays-and-trees)
+     - [Suffix Array Introduction](#suffix-array-introduction)
+     - [Suffix Tree Introduction](#suffix-tree-introduction)
+   - [AVL Trees](#avl-trees)
+     - [Insertion](#insertion)
+     - [Deletion](#deletion)
+   - [Splay Trees](#splay-trees)
+     - [Search](#search)
+     - [Insert](#insert)
+   - [B Trees](#b-trees)
+     - [Introduction](#introduction)
+     - [Insert](#insert)
+     - [Delete](#delete)
+   - [Red-Black Trees](#red-black-trees)
+     - [Introduction](#introduction)
+     - [Insertion](#insertion)
+     - [Deletion](#deletion)
+   - [KD Trees](#kd-trees)
+     - [Search and Insert](#search-and-insert)
+     - [Find Minimum](#find-minimum)
+     - [Delete](#delete)
+
+6. [Coding Practice and Quizzes](#coding-practice-and-quizzes)
+   - [Coding Practice](#coding-practice)
+   - [Quizzes](#quizzes)
+   - [Articles](#articles)
+
+7. [Additional Resources](#additional-resources)
+   - [Further Reading](#further-reading)
+   - [Tools and Libraries](#tools-and-libraries)
+   - [Community and Forums](#community-and-forums)
+
+8. [Contributing](#contributing)
+   - [How to Contribute](#how-to-contribute)
+   - [Guidelines](#guidelines)
+
+9. [License](#license)
+
+10. [Contact](#contact)
+    - [Feedback](#feedback)
+    - [Questions](#questions)
 
 ---
 
+## Data Structures Overview
+
+1. [What is Data Structure?](#what-is-data-structure)
+2. [Classification of Data Structures](#classification-of-data-structures)
+
+## Primitive Data Structures
+
+1. [Array Data Structure](#array-data-structure)
+   - [Basic Operations](#basic-operations)
+   - [Array Manipulations](#array-manipulations)
+   - [Advanced Problems](#advanced-problems)
+   - [Visualization](#visualization)
+
+2. [Linked List Data Structure](#linked-list-data-structure)
+   - [Singly Linked List](#singly-linked-list)
+   - [Circular Linked List](#circular-linked-list)
+   - [Doubly Linked List](#doubly-linked-list)
+   - [Visualization](#visualization)
+
+3. [Matrix Data Structure](#matrix-data-structure)
+   - [Search in Row-wise and Column-wise Sorted Matrix](#search-in-row-wise-and-column-wise-sorted-matrix)
+   - [Print Matrix in Spiral Form](#print-matrix-in-spiral-form)
+   - [Visualization](#visualization)
+
+4. [Stack Data Structure](#stack-data-structure)
+   - [Introduction to Stack](#introduction-to-stack)
+   - [Common Operations](#common-operations)
+   - [Infix to Postfix Conversion](#infix-to-postfix-conversion)
+   - [Visualization](#visualization)
+
+5. [Queue Data Structure](#queue-data-structure)
+   - [Introduction and Array Implementation](#introduction-and-array-implementation)
+   - [Priority Queue](#priority-queue)
+   - [Visualization](#visualization)
+
+6. [Binary Tree Data Structure](#binary-tree-data-structure)
+   - [Introduction and Properties](#introduction-and-properties)
+   - [Tree Traversals](#tree-traversals)
+   - [Visualization](#visualization)
+
+7. [Binary Search Tree Data Structure](#binary-search-tree-data-structure)
+   - [Search and Insert in BST](#search-and-insert-in-bst)
+   - [Deletion from BST](#deletion-from-bst)
+   - [Visualization](#visualization)
+
+8. [Heap Data Structure](#heap-data-structure)
+   - [Binary Heap](#binary-heap)
+   - [Heap Sort](#heap-sort)
+   - [Visualization](#visualization)
+
+9. [Hashing Data Structure](#hashing-data-structure)
+   - [Hashing Introduction](#hashing-introduction)
+   - [Collision Handling](#collision-handling)
+   - [Visualization](#visualization)
+
+10. [Graph Data Structure](#graph-data-structure)
+    - [Representations](#representations)
+    - [Traversals](#traversals)
+    - [Visualization](#visualization)
+
+11. [Advanced Data Structures](#advanced-data-structures)
+    - [Advanced Lists](#advanced-lists)
+    - [Segment Tree](#segment-tree)
+    - [Trie Data Structure](#trie-data-structure)
+    - [Binary Indexed Tree (Fenwick Tree)](#binary-indexed-tree-fenwick-tree)
+    - [Suffix Array and Suffix Tree](#suffix-array-and-suffix-tree)
+    - [AVL Tree](#avl-tree)
+    - [Splay Tree](#splay-tree)
+    - [B Tree](#b-tree)
+    - [Red-Black Tree](#red-black-tree)
+    - [KD Tree](#kd-tree)
+    - [Visualization](#visualization)
+
+---
+
+Feel free to adjust or add any sections based on the content you have!
 # Data Structures Overview
 
 ## What is Data Structure?
@@ -31,6 +226,56 @@ A **data structure** is a specialized format for organizing and storing data. It
    - **Hash-Based Structures**: Hash Tables
    - **Advanced Data Structures**: Heaps, Tries, Segment Trees, Suffix Trees
 
+# Classification of Data Structures
+
+``` mermaid
+graph TD
+    A[Data Structures] --> B[Primitive Data Structures]
+    A --> C[Non-Primitive Data Structures]
+    A --> D[Hash-Based Structures]
+    A --> E[Advanced Data Structures]
+
+    B --> B1[Integer]
+    B --> B2[Float]
+    B --> B3[Character]
+    B --> B4[Boolean]
+
+    C --> C1[Linear Data Structures]
+    C --> C2[Non-Linear Data Structures]
+    
+    C1 --> C1a[Arrays]
+    C1 --> C1b[Linked Lists]
+    C1 --> C1c[Stacks]
+    C1 --> C1d[Queues]
+    
+    C2 --> C2a[Trees]
+    C2 --> C2b[Graphs]
+    
+    E --> E1[Advanced Lists]
+    E --> E2[Segment Trees]
+    E --> E3[Tries]
+    E --> E4[Binary Indexed Trees]
+    E --> E5[Suffix Arrays and Trees]
+    E --> E6[AVL Trees]
+    E --> E7[Splay Trees]
+    E --> E8[B Trees]
+    E --> E9[Red-Black Trees]
+    E --> E10[KD Trees]
+
+    D --> D1[Hash Tables]
+    D --> D2[Hashing Techniques]
+
+    %% Style Definitions
+    classDef main fill:#f9f,stroke:#333,stroke-width:2px;
+    classDef primitive fill:#ccf,stroke:#333,stroke-width:2px;
+    classDef nonPrimitive fill:#cfc,stroke:#333,stroke-width:2px;
+    classDef advanced fill:#fcc,stroke:#333,stroke-width:2px;
+    class A main;
+    class B,C,D,E main;
+    class B1,B2,B3,B4 primitive;
+    class C1,C2 nonPrimitive;
+    class E1,E2,E3,E4,E5,E6,E7,E8,E9,E10 advanced;
+```
 ## Introduction to Data Structures
 
 Data structures are used to manage and organize data to perform operations efficiently. They can be classified into:
@@ -592,4 +837,3 @@ graph TD
 
 ---
 
-Feel free to adjust the level of detail or examples according to your needs!
