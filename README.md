@@ -1,522 +1,595 @@
 
-
-# Data Structures
-
-## Table of Contents
-1. [Introduction](#introduction)
-2. [Arrays](#arrays)
-   - [Characteristics](#characteristics)
-   - [Flow Chart](#flow-chart)
-   - [Operations](#operations)
-     - [Search](#search)
-     - [Insert](#insert)
-     - [Delete](#delete)
-     - [Sorting](#sorting)
-3. [Linked Lists](#linked-lists)
-   - [Singly Linked List](#singly-linked-list)
-   - [Doubly Linked List](#doubly-linked-list)
-   - [Circular Linked List](#circular-linked-list)
-4. [Stacks](#stacks)
-5. [Queues](#queues)
-   - [Simple Queue](#simple-queue)
-   - [Circular Queue](#circular-queue)
-   - [Priority Queue](#priority-queue)
-6. [Trees](#trees)
-   - [Binary Trees](#binary-trees)
-   - [Binary Search Trees](#binary-search-trees)
-   - [AVL Trees](#avl-trees)
-   - [Heap Trees](#heap-trees)
-7. [Graphs](#graphs)
-   - [Graph Representations](#graph-representations)
-   - [Graph Traversal Algorithms](#graph-traversal-algorithms)
-8. [Hash Tables](#hash-tables)
+Certainly! Here's a detailed explanation of each data structure topic using Markdown. I'll include Mermaid diagrams where applicable to visually represent the concepts.
 
 ---
 
-## Introduction
+# Data Structures Overview
 
-Data structures are ways to store and organize data efficiently. Choosing the right data structure can significantly impact the performance of algorithms and systems. Below are the fundamental data structures, their properties, and use cases.
+## What is Data Structure?
+
+A **data structure** is a specialized format for organizing and storing data. It provides a way to manage data efficiently and is fundamental to designing efficient algorithms. Data structures can be classified based on their type, purpose, and operations. 
+
+**Types:**
+- **Linear Data Structures**: Arrays, Linked Lists, Stacks, Queues
+- **Non-linear Data Structures**: Trees, Graphs
+- **Hash-based Structures**: Hash Tables
+- **Advanced Data Structures**: Heaps, Tries, Segment Trees, Suffix Trees
+
+**Applications:**
+- **Arrays**: Useful for storing and accessing elements in a fixed-size collection.
+- **Linked Lists**: Efficient for dynamic memory allocation and frequent insertions/deletions.
+- **Stacks and Queues**: Ideal for scenarios requiring Last-In-First-Out (LIFO) or First-In-First-Out (FIFO) operations.
+- **Trees and Graphs**: Suitable for hierarchical and networked data representation.
+- **Hashing**: Provides fast data retrieval based on key values.
+
+## Classification of Data Structures
+
+1. **Primitive Data Structures**: Integer, Float, Character, etc.
+2. **Non-Primitive Data Structures**: Arrays, Lists, Stacks, Queues, Trees, Graphs
+   - **Linear Data Structures**: Arrays, Linked Lists, Stacks, Queues
+   - **Non-Linear Data Structures**: Trees, Graphs
+   - **Hash-Based Structures**: Hash Tables
+   - **Advanced Data Structures**: Heaps, Tries, Segment Trees, Suffix Trees
+
+## Introduction to Data Structures
+
+Data structures are used to manage and organize data to perform operations efficiently. They can be classified into:
+
+- **Arrays**: Fixed-size, indexed collection of elements.
+- **Linked Lists**: Nodes linked sequentially.
+- **Stacks**: Collection of elements with LIFO order.
+- **Queues**: Collection of elements with FIFO order.
+- **Trees**: Hierarchical structures with nodes.
+- **Graphs**: Network of nodes and edges.
+
+**Common Operations:**
+- **Insertion**: Adding data.
+- **Deletion**: Removing data.
+- **Search**: Finding data.
+- **Traversal**: Visiting all elements.
 
 ---
 
-## Arrays
+## Array Data Structure
 
-An array is a collection of elements identified by index or key. Arrays have a fixed size, and elements are stored in contiguous memory locations.
+### Basic Operations
 
-### Characteristics
-- **Fixed Size**: The size of an array is determined at initialization.
-- **Indexed Access**: Elements can be accessed directly using their index.
+- **Search, Insert, and Delete in an Unsorted Array**
+  - **Search**: Linear search.
+  - **Insert**: Append at the end.
+  - **Delete**: Remove the element and shift others.
 
-### Example
+- **Search, Insert, and Delete in a Sorted Array**
+  - **Search**: Binary search.
+  - **Insert**: Find the position and shift elements.
+  - **Delete**: Remove the element and shift others.
 
-```markdown
-Index:     0  1  2  3
-Array:   [10, 20, 30, 40]
-```
+### Array Manipulations
 
-### Flow Chart
+- **Reverse an Array**
+  ```cpp
+  void reverseArray(int arr[], int size) {
+      int start = 0, end = size - 1;
+      while (start < end) {
+          std::swap(arr[start], arr[end]);
+          start++;
+          end--;
+      }
+  }
+  ```
 
-```mermaid
-graph TD;
-    A[Start] --> B[Declare Array]
-    B --> C[Initialize Array]
-    C --> D[Access Elements]
-    D --> E[End]
-```
+- **Find Leaders in an Array**
+  ```cpp
+  void printLeaders(int arr[], int size) {
+      int max_from_right = arr[size - 1];
+      std::cout << max_from_right << " ";
+      for (int i = size - 2; i >= 0; i--) {
+          if (arr[i] > max_from_right) {
+              max_from_right = arr[i];
+              std::cout << max_from_right << " ";
+          }
+      }
+  }
+  ```
 
-### Operations
+- **Find Pair with Sum `x`**
+  ```cpp
+  bool hasPairWithSum(int arr[], int size, int x) {
+      std::unordered_set<int> s;
+      for (int i = 0; i < size; i++) {
+          if (s.find(x - arr[i]) != s.end()) return true;
+          s.insert(arr[i]);
+      }
+      return false;
+  }
+  ```
 
-#### 1. Search
+### Advanced Problems
 
-**Searching** involves finding an element within an array. The two common search algorithms are Linear Search and Binary Search.
+- **Median of Two Sorted Arrays**
+  ```cpp
+  double findMedianSortedArrays(int nums1[], int size1, int nums2[], int size2) {
+      std::vector<int> merged(size1 + size2);
+      std::merge(nums1, nums1 + size1, nums2, nums2 + size2, merged.begin());
+      int mid = merged.size() / 2;
+      if (merged.size() % 2 == 0)
+          return (merged[mid - 1] + merged[mid]) / 2.0;
+      else
+          return merged[mid];
+  }
+  ```
 
-**Linear Search**: Sequentially checks each element until the desired element is found or the end of the array is reached.
+- **Rotate an Array**
+  ```cpp
+  void rotateArray(int arr[], int size, int d) {
+      std::reverse(arr, arr + d);
+      std::reverse(arr + d, arr + size);
+      std::reverse(arr, arr + size);
+  }
+  ```
 
-**Linear Search Example**
-
-```mermaid
-graph TD;
-    A[Start] --> B[Initialize Index = 0]
-    B --> C{Is Index < Size}
-    C -- Yes --> D{Is Array[Index] == Target}
-    D -- Yes --> E[Return Index]
-    D -- No --> F[Increment Index]
-    F --> C
-    C -- No --> G[Element Not Found]
-    E --> H[End]
-    G --> H
-```
-
-**Binary Search**: Efficiently finds an element in a sorted array by repeatedly dividing the search interval in half.
-
-**Binary Search Example**
-
-```mermaid
-graph TD;
-    A[Start] --> B[Initialize Low and High]
-    B --> C[Calculate Middle]
-    C --> D{Is Array[Middle] == Target}
-    D -- Yes --> E[Return Middle]
-    D -- No --> F{Is Target < Array[Middle]}
-    F -- Yes --> G[Set High = Middle - 1]
-    F -- No --> H[Set Low = Middle + 1]
-    G --> B
-    H --> B
-    E --> I[End]
-```
-
-#### 2. Insert
-
-**Inserting** an element involves adding it to a specific position in the array. If the array is full, it might require resizing.
-
-**Insert Example**
-
-```mermaid
-graph TD;
-    A[Start] --> B[Check if Array is Full]
-    B -- Yes --> C[Resize Array]
-    B -- No --> D[Shift Elements to Right]
-    D --> E[Insert Element at Position]
-    E --> F[End]
-```
-
-#### 3. Delete
-
-**Deleting** an element involves removing it from a specific position and shifting the subsequent elements to fill the gap.
-
-**Delete Example**
+### Visualization
 
 ```mermaid
-graph TD;
-    A[Start] --> B[Find Element to Delete]
-    B --> C[Shift Elements to Left]
-    C --> D[Update Array Size]
-    D --> E[End]
-```
-
-#### 4. Sorting
-
-**Sorting** involves arranging the elements of the array in a specific order (ascending or descending). Common sorting algorithms include Bubble Sort, Selection Sort, and Merge Sort.
-
-**Bubble Sort Example**
-
-```mermaid
-graph TD;
-    A[Start] --> B[Initialize i = 0]
-    B --> C{Is i < Size - 1}
-    C -- Yes --> D[Initialize j = 0]
-    D --> E{Is j < Size - i - 1}
-    E -- Yes --> F{Is Array[j] > Array[j + 1]}
-    F -- Yes --> G[Swap Array[j] and Array[j + 1]]
-    G --> H[Increment j]
-    F -- No --> H
-    H --> E
-    E -- No --> I[Increment i]
-    I --> C
-    C -- No --> J[End]
-```
-
-**Merge Sort Example**
-
-```mermaid
-graph TD;
-    A[Start] --> B[Divide Array into Halves]
-    B --> C[Sort Each Half Recursively]
-    C --> D[Merge Sorted Halves]
-    D --> E[End]
+graph TD
+    A[Array] --> B[Reverse]
+    A --> C[Search]
+    A --> D[Insert]
+    A --> E[Delete]
+    B --> F[Swap elements]
+    C --> G[Linear search]
+    C --> H[Binary search]
+    D --> I[Append at end]
+    E --> J[Remove and shift]
 ```
 
 ---
 
-## Linked Lists
-
-A linked list is a linear collection of nodes where each node contains a data element and a reference to the next node in the sequence.
+## Linked List Data Structure
 
 ### Singly Linked List
 
-In a singly linked list, each node points to the next node. It allows for efficient insertion and deletion.
+- **Introduction to Linked List**
+  - **Linked List vs Array**: Dynamic size vs fixed size, ease of insertion/deletion.
+- **Insertion and Deletion**
+  - **Insertion**: At head, at end, after a given node.
+  - **Deletion**: Remove a node with a specific key or at a specific position.
 
-#### Example
+```cpp
+struct Node {
+    int data;
+    Node* next;
+};
 
-```mermaid
-graph TD;
-    A[Head] --> B[10]
-    B --> C[20]
-    C --> D[30]
-    D --> E[NULL]
+void insertAtEnd(Node*& head, int data) {
+    Node* newNode = new Node{data, nullptr};
+    if (!head) {
+        head = newNode;
+        return;
+    }
+    Node* temp = head;
+    while (temp->next) {
+        temp = temp->next;
+    }
+    temp->next = newNode;
+}
+
+void deleteNode(Node*& head, int key) {
+    Node* temp = head;
+    Node* prev = nullptr;
+    if (temp && temp->data == key) {
+        head = temp->next;
+        delete temp;
+        return;
+    }
+    while (temp && temp->data != key) {
+        prev = temp;
+        temp = temp->next;
+    }
+    if (temp) {
+        prev->next = temp->next;
+        delete temp;
+    }
+}
 ```
 
-### Flow Chart
-
-```mermaid
-graph TD;
-    A[Start] --> B[Create Node]
-    B --> C[Insert Node]
-    C --> D[Traverse List]
-    D --> E[End]
-```
-
-### Doubly Linked List
-
-A doubly linked list has nodes with two references: one to the next node and one to the previous node.
-
-#### Example
-
-```mermaid
-graph TD;
-    A[NULL] <---> B[10] <---> C[20] <---> D[30] --> E[NULL]
-```
-
-### Flow Chart
-
-```mermaid
-graph TD;
-    A[Start] --> B[Create Node]
-    B --> C[Insert Node]
-    C --> D[Traverse List]
-    D --> E[End]
-```
+- **Reverse a Linked List**
+  ```cpp
+  Node* reverse(Node* head) {
+      Node* prev = nullptr;
+      Node* current = head;
+      Node* next = nullptr;
+      while (current) {
+          next = current->next;
+          current->next = prev;
+          prev = current;
+          current = next;
+      }
+      return prev;
+  }
+  ```
 
 ### Circular Linked List
 
-In a circular linked list, the last node points back to the first node.
+- **Introduction and Applications**
+  - **Circular Singly Linked List Insertion**: Node points to the head.
+  - **Traversal**: Iteratively traverse until the head is reached again.
 
-#### Example
+### Doubly Linked List
 
-```mermaid
-graph TD;
-    A[Head] --> B[10]
-    B --> C[20]
-    C --> D[30]
-    D --> A[Head]
+- **Introduction and Insertion**
+  - **Doubly Linked List**: Nodes with pointers to both next and previous nodes.
+  - **Insertion**: At head, at end, before, and after a given node.
+
+```cpp
+struct DoublyNode {
+    int data;
+    DoublyNode* next;
+    DoublyNode* prev;
+};
+
+void insertAtHead(DoublyNode*& head, int data) {
+    DoublyNode* newNode = new DoublyNode{data, head, nullptr};
+    if (head) head->prev = newNode;
+    head = newNode;
+}
 ```
 
-### Flow Chart
+### Visualization
 
 ```mermaid
-graph TD;
-    A[Start] --> B[Create Node]
-    B --> C[Insert Node]
-    C --> D[Traverse List]
-    D --> E[End]
-```
-
----
-
-## Stacks
-
-A stack is a collection of elements with Last In, First Out (LIFO) access policy.
-
-### Characteristics
-- **Push**: Add an element to the top of the stack.
-- **Pop**: Remove the top element from the stack.
-- **Peek**: Retrieve the top element without removing it.
-
-### Example
-
-```mermaid
-graph TD;
-    A[Top] --> B[30]
-    B --> C[20]
-    C --> D[10]
-    D --> E[Bottom]
-```
-
-### Flow Chart
-
-```mermaid
-graph TD;
-    A[Start] --> B[Push Operation]
-    B --> C[Pop Operation]
-    C --> D[Peek Operation]
-    D --> E[End]
+graph TD
+    A[Singly Linked List] --> B[Head]
+    A --> C[Insert]
+    A --> D[Delete]
+    A --> E[Reverse]
+    B --> F[Node]
+    C --> G[At Head]
+    C --> H[At End]
+    D --> I[Specific Key]
+    E --> J[Iterative]
 ```
 
 ---
 
-## Queues
+## Matrix Data Structure
 
-A queue is a collection of elements with First In, First Out (FIFO) access policy.
+- **Search in Row-wise and Column-wise Sorted Matrix**
+  ```cpp
+  bool searchMatrix(int matrix[][], int rows, int cols, int target) {
+      int i = 0, j = cols - 1;
+      while (i < rows && j >= 0) {
+          if (matrix[i][j] == target) return true;
+          if (matrix[i][j] > target) j--;
+          else i++;
+      }
+      return false;
+  }
+  ```
 
-### Simple Queue
+- **Print Matrix in Spiral Form**
+  ```cpp
+  void printSpiral(int matrix[][], int rows, int cols) {
+      int top = 0, bottom = rows - 1, left = 0, right = cols - 1;
+      while (top <= bottom && left <= right) {
+          for (int i = left; i <= right; i++) std::cout << matrix[top][i] << " ";
+          top++;
+          for (int i = top; i <= bottom; i++) std::cout << matrix[i][right] << " ";
+          right--;
+          if (top <= bottom) {
+              for (int i = right; i >= left; i--) std::cout << matrix[bottom][i] << " ";
+              bottom--;
 
-Elements are added to the rear and removed from the front.
 
-#### Example
+          }
+          if (left <= right) {
+              for (int i = bottom; i >= top; i--) std::cout << matrix[i][left] << " ";
+              left++;
+          }
+      }
+  }
+  ```
 
-```mermaid
-graph TD;
-    A[Front] --> B[10]
-    B --> C[20]
-    C --> D[30]
-    D --> E[Rear]
-```
-
-### Flow Chart
-
-```mermaid
-graph TD;
-    A[Start] --> B[Enqueue Operation]
-    B --> C[Dequeue Operation]
-    C --> D[End]
-```
-
-### Circular Queue
-
-A circular queue connects the end of the queue back to the beginning, forming a circle.
-
-#### Example
-
-```mermaid
-graph TD;
-    A[10] --> B[20]
-    B --> C[30]
-    C --> D[10]
-```
-
-### Flow Chart
+### Visualization
 
 ```mermaid
-graph TD;
-    A[Start] --> B[Enqueue Operation]
-    B --> C[Dequeue Operation]
-    C --> D[Check for Full/Empty]
-    D --> E[End]
-```
-
-### Priority Queue
-
-A priority queue processes elements based on their priority
-
- rather than their order of arrival.
-
-### Flow Chart
-
-```mermaid
-graph TD;
-    A[Start] --> B[Insert with Priority]
-    B --> C[Extract Max/Min]
-    C --> D[End]
+graph TD
+    A[Matrix] --> B[Search]
+    A --> C[Print Spiral]
+    B --> D[Row-wise & Column-wise Sorted]
+    C --> E[Top-Right-Bottom-Left]
 ```
 
 ---
 
-## Trees
+## Stack Data Structure
 
-A tree is a hierarchical data structure consisting of nodes with a parent-child relationship.
+- **Introduction to Stack**
+  - **LIFO Order**: Last-In-First-Out.
+- **Common Operations**
+  - **Push**: Add an element.
+  - **Pop**: Remove the top element.
+  - **Peek**: View the top element.
 
-### Binary Trees
-
-A binary tree is a tree in which each node has at most two children.
-
-#### Example
-
-```mermaid
-graph TD;
-    A[10]
-    A --> B[20]
-    A --> C[30]
-    B --> D[40]
-    B --> E[50]
+```cpp
+class Stack {
+    std::stack<int> s;
+public:
+    void push(int x) { s.push(x); }
+    void pop() { if (!s.empty()) s.pop(); }
+    int top() { return s.top(); }
+};
 ```
 
-### Flow Chart
+- **Infix to Postfix Conversion**
+  ```cpp
+  std::string infixToPostfix(const std::string& infix) {
+      std::stack<char> s;
+      std::string postfix;
+      for (char c : infix) {
+          if (isalnum(c)) postfix += c;
+          else if (c == '(') s.push(c);
+          else if (c == ')') {
+              while (!s.empty() && s.top() != '(') {
+                  postfix += s.top();
+                  s.pop();
+              }
+              s.pop();
+          } else {
+              while (!s.empty() && precedence(c) <= precedence(s.top())) {
+                  postfix += s.top();
+                  s.pop();
+              }
+              s.push(c);
+          }
+      }
+      while (!s.empty()) {
+          postfix += s.top();
+          s.pop();
+      }
+      return postfix;
+  }
+  ```
+
+### Visualization
 
 ```mermaid
-graph TD;
-    A[Start] --> B[Create Node]
-    B --> C[Insert Left/Right]
-    C --> D[Traverse Tree]
-    D --> E[End]
-```
-
-### Binary Search Trees (BST)
-
-A binary search tree is a binary tree where each node follows the BST property: left subtree values are less than the node value, and right subtree values are greater.
-
-#### Example
-
-```mermaid
-graph TD;
-    A[20]
-    A --> B[10]
-    A --> C[30]
-    B --> D[15]
-    C --> E[25]
-```
-
-### Flow Chart
-
-```mermaid
-graph TD;
-    A[Start] --> B[Create Node]
-    B --> C[Insert Node]
-    C --> D[Traverse Tree]
-    D --> E[End]
-```
-
-### AVL Trees
-
-An AVL tree is a self-balancing binary search tree where the height difference between left and right subtrees is at most one.
-
-### Flow Chart
-
-```mermaid
-graph TD;
-    A[Start] --> B[Insert Node]
-    B --> C[Balance Tree]
-    C --> D[End]
-```
-
-### Heap Trees
-
-A heap is a specialized tree-based data structure that satisfies the heap property.
-
-#### Example
-
-```mermaid
-graph TD;
-    A[50]
-    A --> B[30]
-    A --> C[20]
-    B --> D[15]
-    B --> E[10]
-```
-
-### Flow Chart
-
-```mermaid
-graph TD;
-    A[Start] --> B[Insert Node]
-    B --> C[Heapify]
-    C --> D[Extract Max/Min]
-    D --> E[End]
+graph TD
+    A[Stack] --> B[Push]
+    A --> C[Pop]
+    A --> D[Peek]
+    B --> E[Add Element]
+    C --> F[Remove Top]
+    D --> G[View Top]
 ```
 
 ---
 
-## Graphs
+## Queue Data Structure
 
-A graph is a collection of nodes (vertices) and edges connecting them.
+- **Introduction and Array Implementation**
+  - **FIFO Order**: First-In-First-Out.
+  - **Circular Queue**: Array-based circular implementation.
 
-### Graph Representations
-
-- **Adjacency Matrix**: A 2D array where `matrix[i][j]` represents the edge between vertex `i` and `j`.
-- **Adjacency List**: A list where each node has a list of adjacent nodes.
-
-#### Example (Adjacency Matrix)
-
-```mermaid
-graph TD;
-    A[0] --> B[1]
-    A --> C[2]
-    B --> D[1]
-    C --> E[0]
+```cpp
+class Queue {
+    int front, rear, size;
+    int* queue;
+public:
+    Queue(int capacity) : front(0), rear(-1), size(0) {
+        queue = new int[capacity];
+    }
+    void enqueue(int x) { /* Implementation */ }
+    void dequeue() { /* Implementation */ }
+};
 ```
 
-#### Example (Adjacency List)
+- **Priority Queue**
+  - **Heap-based**: Elements with highest priority are dequeued first.
+
+### Visualization
 
 ```mermaid
-graph TD;
-    A[0] --> B[1]
-    B[1] --> C[2]
-    C[2] --> D[3]
-    D[3] --> E[0]
-```
-
-### Graph Traversal Algorithms
-
-- **Depth-First Search (DFS)**: Explores as far as possible along each branch before backtracking.
-- **Breadth-First Search (BFS)**: Explores all neighbors at the present depth before moving on to nodes at the next depth level.
-
-### Flow Chart for DFS
-
-```mermaid
-graph TD;
-    A[Start] --> B[Visit Node]
-    B --> C[Explore Neighbors]
-    C --> D[Backtrack]
-    D --> E[End]
-```
-
-### Flow Chart for BFS
-
-```mermaid
-graph TD;
-    A[Start] --> B[Visit Node]
-    B --> C[Queue Neighbors]
-    C --> D[Dequeue Node]
-    D --> E[End]
+graph TD
+    A[Queue] --> B[Enqueue]
+    A --> C[Dequeue]
+    B --> D[Add Element]
+    C --> E[Remove Element]
 ```
 
 ---
 
-## Hash Tables
+## Binary Tree Data Structure
 
-A hash table stores key-value pairs where keys are hashed to determine the index for storing values.
+- **Introduction and Properties**
+  - **Binary Tree**: Each node has at most two children.
+  - **Properties**: Depth, height, and balance.
 
-### Characteristics
-- **Hash Function**: Maps keys to indices in the hash table.
-- **Collision Handling**: Techniques like chaining or open addressing to handle collisions.
-
-### Example
-
-```mermaid
-graph TD;
-    A[Key: "Name"] --> B[Hash: 2]
-    B --> C[Value: "Alice"]
-    D[Key: "Age"] --> E[Hash: 4]
-    E --> F[Value: 30]
-```
-
-### Flow Chart
+- **Tree Traversals**
+  - **Inorder**: Left-Root-Right.
+  - **Preorder**: Root-Left-Right.
+  - **Postorder**: Left-Right-Root.
+  - **Level Order**: Breadth-First.
 
 ```mermaid
-graph TD;
-    A[Start] --> B[Hash Key]
-    B --> C[Store in Table]
-    C --> D[Handle Collision]
-    D --> E[End]
+graph TD
+    A[Binary Tree] --> B[Traversal]
+    B --> C[Inorder]
+    B --> D[Preorder]
+    B --> E[Postorder]
+    B --> F[Level Order]
 ```
 
 ---
+
+## Binary Search Tree Data Structure
+
+- **Search and Insert in BST**
+  - **Search**: Traverse left for smaller values, right for larger.
+  - **Insert**: Insert in the appropriate subtree based on the value.
+
+```cpp
+class BST {
+    TreeNode* root;
+public:
+    void insert(int value) { /* Implementation */ }
+    TreeNode* search(int value) { /* Implementation */ }
+};
+```
+
+- **Deletion from BST**
+  - **Case 1**: Node has no children.
+  - **Case 2**: Node has one child.
+  - **Case 3**: Node has two children.
+
+### Visualization
+
+```mermaid
+graph TD
+    A[BST] --> B[Search]
+    A --> C[Insert]
+    A --> D[Delete]
+    B --> E[Left or Right]
+    C --> F[Insert in Subtree]
+    D --> G[Handle Cases]
+```
+
+---
+
+## Heap Data Structure
+
+- **Binary Heap**
+  - **Min-Heap**: Root is the minimum element.
+  - **Max-Heap**: Root is the maximum element.
+- **Heap Sort**: Sorting algorithm using heaps.
+
+### Visualization
+
+```mermaid
+graph TD
+    A[Heap] --> B[Min-Heap]
+    A --> C[Max-Heap]
+    A --> D[Heap Sort]
+    B --> E[Root is Minimum]
+    C --> F[Root is Maximum]
+    D --> G[Sorting Algorithm]
+```
+
+---
+
+## Hashing Data Structure
+
+- **Hashing Introduction**
+  - **Hash Table**: Data structure for fast retrieval using keys.
+- **Collision Handling**
+  - **Separate Chaining**: Use linked lists for collisions.
+  - **Open Addressing**: Find another slot using probing.
+
+### Visualization
+
+```mermaid
+graph TD
+    A[Hashing] --> B[Hash Table]
+    B --> C[Separate Chaining]
+    B --> D[Open Addressing]
+    C --> E[Linked Lists]
+    D --> F[Probing]
+```
+
+---
+
+## Graph Data Structure
+
+- **Representations**
+  - **Adjacency Matrix**: Matrix representation.
+  - **Adjacency List**: List of edges for each vertex.
+
+- **Traversals**
+  - **Breadth-First Search (BFS)**
+  - **Depth-First Search (DFS)**
+
+### Visualization
+
+```mermaid
+graph TD
+    A[Graph] --> B[Adjacency Matrix]
+    A --> C[Adjacency List]
+    A --> D[BFS]
+    A --> E[DFS]
+```
+
+---
+
+## Advanced Data Structure
+
+### Advanced Lists
+
+- **Memory Efficient Doubly Linked List**
+  - **XOR Linked List**: Nodes store XOR of addresses.
+
+### Segment Tree
+
+- **Segment Tree Basics**
+  - **Range Queries**: Sum, minimum, maximum.
+  - **Lazy Propagation**: Efficient updates.
+
+### Trie Data Structure
+
+- **Trie Operations**
+  - **Insert**: Add words.
+  - **Search**: Find words.
+
+### Binary Indexed Tree (Fenwick Tree)
+
+- **Range Queries and Updates**
+  - **Point Queries**: Efficient querying.
+
+### Suffix Array and Suffix Tree
+
+- **Suffix Array**: Sorting of suffixes.
+- **Suffix Tree**: Efficient substring searches.
+
+### AVL Tree
+
+- **Balanced BST**
+  - **Insertion and Deletion**: Maintain balance.
+
+### Splay Tree
+
+- **Self-Adjusting BST**
+  - **Search and Insert**: Nodes are moved to the root.
+
+### B Tree
+
+- **Balanced Tree**
+  - **Insertion and Deletion**: Balanced with multiple children.
+
+### Red-Black Tree
+
+- **Balanced BST**
+  - **Insertion and Deletion**: Maintain red-black properties.
+
+### KD Tree
+
+- **Multi-dimensional Tree**
+  - **Search and Insert**: Efficient spatial queries.
+
+### Visualization
+
+```mermaid
+graph TD
+    A[Advanced Data Structures] --> B[Advanced Lists]
+    A --> C[Segment Tree]
+    A --> D[Trie]
+    A --> E[Binary Indexed Tree]
+    A --> F[Suffix Array/Tree]
+    A --> G[AVL Tree]
+    A --> H[Splay Tree]
+    A --> I[B Tree]
+    A --> J[Red-Black Tree]
+    A --> K[KD Tree]
+```
+
+---
+
+Feel free to adjust the level of detail or examples according to your needs!
