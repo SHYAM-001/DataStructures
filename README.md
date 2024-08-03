@@ -230,51 +230,81 @@ A **data structure** is a specialized format for organizing and storing data. It
 
 ``` mermaid
 graph TD
-    A[Data Structures] --> B[Primitive Data Structures]
-    A --> C[Non-Primitive Data Structures]
-    A --> D[Hash-Based Structures]
-    A --> E[Advanced Data Structures]
+    A[Data Structures] --> B[**Primitive Data Structures**]
+    A --> C[**Non-Primitive Data Structures**]
+    A --> D[**Hash-Based Structures**]
+    A --> E[**Advanced Data Structures**]
 
-    B --> B1[Integer]
-    B --> B2[Float]
-    B --> B3[Character]
-    B --> B4[Boolean]
+    B --> B1[**Integer**]
+    B --> B2[**Float**]
+    B --> B3[**Character**]
+    B --> B4[**Boolean**]
 
-    C --> C1[Linear Data Structures]
-    C --> C2[Non-Linear Data Structures]
+    C --> C1[**Linear Data Structures**]
+    C --> C2[**Non-Linear Data Structures**]
     
-    C1 --> C1a[Arrays]
-    C1 --> C1b[Linked Lists]
-    C1 --> C1c[Stacks]
-    C1 --> C1d[Queues]
+    C1 --> C1a[**Arrays**]
+    C1 --> C1b[**Linked Lists**]
+    C1 --> C1c[**Stacks**]
+    C1 --> C1d[**Queues**]
     
-    C2 --> C2a[Trees]
-    C2 --> C2b[Graphs]
+    C2 --> C2a[**Trees**]
+    C2 --> C2b[**Graphs**]
     
-    E --> E1[Advanced Lists]
-    E --> E2[Segment Trees]
-    E --> E3[Tries]
-    E --> E4[Binary Indexed Trees]
-    E --> E5[Suffix Arrays and Trees]
-    E --> E6[AVL Trees]
-    E --> E7[Splay Trees]
-    E --> E8[B Trees]
-    E --> E9[Red-Black Trees]
-    E --> E10[KD Trees]
+    E --> E1[**Advanced Lists**]
+    E --> E2[**Segment Trees**]
+    E --> E3[**Tries**]
+    E --> E4[**Binary Indexed Trees**]
+    E --> E5[**Suffix Arrays and Trees**]
+    E --> E6[**AVL Trees**]
+    E --> E7[**Splay Trees**]
+    E --> E8[**B Trees**]
+    E --> E9[**Red-Black Trees**]
+    E --> E10[**KD Trees**]
 
-    D --> D1[Hash Tables]
-    D --> D2[Hashing Techniques]
+    D --> D1[**Hash Tables**]
+    D --> D2[**Hashing Techniques**]
 
     %% Style Definitions
-    classDef main fill:#f9f,stroke:#333,stroke-width:2px;
-    classDef primitive fill:#ccf,stroke:#333,stroke-width:2px;
-    classDef nonPrimitive fill:#cfc,stroke:#333,stroke-width:2px;
-    classDef advanced fill:#fcc,stroke:#333,stroke-width:2px;
+    classDef main fill:#e0f7fa,stroke:#00796b,stroke-width:2px;
+    classDef primitive fill:#e1bee7,stroke:#8e24aa,stroke-width:2px;
+    classDef nonPrimitive fill:#dcedc8,stroke:#7b1fa2,stroke-width:2px;
+    classDef advanced fill:#ffccbc,stroke:#e64a19,stroke-width:2px;
     class A main;
     class B,C,D,E main;
     class B1,B2,B3,B4 primitive;
     class C1,C2 nonPrimitive;
     class E1,E2,E3,E4,E5,E6,E7,E8,E9,E10 advanced;
+    
+    %% Layout
+    A --> B
+    A --> C
+    A --> D
+    A --> E
+    B --> B1
+    B --> B2
+    B --> B3
+    B --> B4
+    C --> C1
+    C --> C2
+    C1 --> C1a
+    C1 --> C1b
+    C1 --> C1c
+    C1 --> C1d
+    C2 --> C2a
+    C2 --> C2b
+    E --> E1
+    E --> E2
+    E --> E3
+    E --> E4
+    E --> E5
+    E --> E6
+    E --> E7
+    E --> E8
+    E --> E9
+    E --> E10
+    D --> D1
+    D --> D2
 ```
 ## Introduction to Data Structures
 
