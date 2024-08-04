@@ -43,6 +43,31 @@ class binaryTrees {
         return false;
     }
 
+    // Traversal Using the Level Order Traversal
+    public void levelOrderTraversal() {
+        if (root == null) {
+            System.out.println("Tree is Empty");
+            return;
+        }
+
+        Queue<Tree> queue = new LinkedList<>();
+        queue.add(root);
+
+        while (!queue.isEmpty()) {
+            Tree current = queue.poll();
+            System.out.print(current.data + " ");
+
+            if (current.left != null) {
+                queue.add(current.left);
+            }
+
+            if (current.right != null) {
+                queue.add(current.right);
+            }
+        }
+        System.out.println();
+    }
+
     // Function to Insert a value in the Binary Tree using Level Order Traversal
     public void insert(int data) {
         Tree temp = new Tree(data);
@@ -201,12 +226,17 @@ public class BinaryTree {
         tree.preorderTraversal(tree.root);
         System.out.println();
 
+        System.out.println("Level Order Traversal:");
+        tree.levelOrderTraversal();
+
         System.out.println("Postorder traversal of the tree:");
         tree.postorderTraversal(tree.root);
         System.out.println();
 
         System.out.println("Deleting node 4:");
-        tree.delete(4);
+        tree.delete(1);
+        tree.preorderTraversal(tree.root);
+        System.out.println();
         tree.inorderTraversal(tree.root);
         System.out.println();
 
